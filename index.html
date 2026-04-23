@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tantura - on Palestinian Coastal Heritage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,700;1,400&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-landing">
+  <nav>
+    <a href="map.html">Map</a>
+    <a href="life.html">Life</a>
+    <a href="index.html" class="wordmark-link active">
+      <img src="img/Tantura-Wordmark-b.png" alt="Tantura" class="wordmark wordmark-b" />
+      <img src="img/Tantura-Wordmark-w.png" alt="" class="wordmark wordmark-w" aria-hidden="true" />
+    </a>
+  </nav>
+
+  <main class="landing">
+    <div class="hero">
+      <img src="img/coast-boat-1.png" alt="Coast with boat" />
+      <img src="img/coast-boat-2.png" alt="Coast with boat overlay" class="overlay" />
+    </div>
+    <h1>Tantura</h1>
+    <p>[copy call to action for user to explore our website]</p>
+    <div class="landing-links">
+      <a href="map.html" class="btn">Explore the Map</a>
+      <a href="life.html" class="btn btn-secondary">Life in Tantura</a>
+    </div>
+  </main>
+
+  <button class="about-btn" onclick="document.getElementById('about-panel').classList.add('open')" aria-label="About">i</button>
+
+  <aside id="about-panel" class="about-panel">
+    <button class="about-close" onclick="document.getElementById('about-panel').classList.remove('open')" aria-label="Close">×</button>
+    <h2>About</h2>
+    <p>Tantura is a Palestinian fishing village known for its ancient port and rich history stretching back to the Bronze Age. You won't be able to find it on a Google Map. tktktk </p>
+    <p>This website is made with the hopes of retaining the presence of Tantura to present day memory. tktktk</p>
+  </aside>
+</body>
+</html>

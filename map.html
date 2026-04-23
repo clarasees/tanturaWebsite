@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Map — Tantura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,700;1,400&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-map">
+  <nav>
+    <a href="map.html" class="active">Map</a>
+    <a href="life.html">Life</a>
+    <a href="index.html" class="wordmark-link">
+      <img src="img/Tantura-Wordmark-b.png" alt="Tantura" class="wordmark wordmark-b" />
+      <img src="img/Tantura-Wordmark-w.png" alt="" class="wordmark wordmark-w" aria-hidden="true" />
+    </a>
+  </nav>
+  <main>
+    <iframe
+      src="https://www.openstreetmap.org/export/embed.html?bbox=34.9151%2C32.6140%2C34.9215%2C32.6194&layer=mapnik&marker=32.6167%2C34.9183"
+      title="Tel Dor, Israel"
+      allowfullscreen>
+    </iframe>
+  </main>
+
+  <button class="about-btn" onclick="document.getElementById('about-panel').classList.add('open')" aria-label="About">i</button>
+
+  <aside id="about-panel" class="about-panel">
+    <button class="about-close" onclick="document.getElementById('about-panel').classList.remove('open')" aria-label="Close">×</button>
+    <h2>About</h2>
+    <p>Tantura was a Palestinian fishing village on the Carmel Coast, known for its ancient port and rich history stretching back to the Bronze Age.</p>
+    <p>This site explores the village's landscape, life, and memory.</p>
+  </aside>
+</body>
+</html>

@@ -1,0 +1,253 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Barlow', sans-serif;
+  line-height: 1.6;
+  color: #111;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.75rem 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+}
+
+nav a.active {
+  color: #111;
+  border-bottom: 2px solid #111;
+}
+
+/* Wordmark logo — pushed to far right */
+.wordmark-link {
+  margin-left: auto;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border-bottom: none !important;
+}
+
+.wordmark {
+  height: 3.5rem;
+  display: block;
+  transition: opacity 0.6s ease;
+}
+
+.wordmark-w {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+/* Default / light-bg pages: black visible, white hidden */
+.wordmark-b { opacity: 1; }
+.wordmark-w { opacity: 0; }
+
+/* Landing dark state: white visible, black hidden */
+body.page-landing .wordmark-b { opacity: 0; }
+body.page-landing .wordmark-w { opacity: 1; }
+
+/* Landing on hero hover (light bg): black visible, white hidden */
+body.page-landing:has(.hero:hover) .wordmark-b { opacity: 1; }
+body.page-landing:has(.hero:hover) .wordmark-w { opacity: 0; }
+
+/* Landing */
+body.page-landing {
+  background-color: #111;
+  color: #eee;
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+body.page-landing nav a:not(.wordmark-link)        { color: #777; }
+body.page-landing nav a.active:not(.wordmark-link) { color: #eee; border-bottom-color: #eee; }
+
+body.page-landing:has(.hero:hover) {
+  background-color: #EBE4C7;
+  color: #111;
+}
+
+body.page-landing:has(.hero:hover) nav a:not(.wordmark-link)        { color: #555; }
+body.page-landing:has(.hero:hover) nav a.active:not(.wordmark-link) { color: #111; border-bottom-color: #111; }
+
+.page-landing main {
+  max-width: 600px;
+  margin: 6rem auto 0;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.hero {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.hero img {
+  display: block;
+  max-width: 100%;
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.hero:hover .overlay {
+  opacity: 1;
+}
+
+.page-landing h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.page-landing p {
+  color: #aaa;
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+.landing-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.page-landing .btn-secondary {
+  background: transparent;
+  color: #eee;
+  border: 1.5px solid #eee;
+  transition: color 0.6s ease, border-color 0.6s ease;
+}
+
+body.page-landing:has(.hero:hover) .btn-secondary {
+  color: #111;
+  border-color: #111;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #111;
+  border: 1.5px solid #111;
+}
+
+/* Life */
+.page-life main {
+  padding: 1.5rem 2rem;
+  max-width: 680px;
+}
+
+.page-life h1 {
+  margin-bottom: 1rem;
+}
+
+/* About button */
+.about-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  background: transparent;
+  color: #eee;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-style: italic;
+  cursor: pointer;
+  z-index: 100;
+}
+
+body:not(.page-landing) .about-btn {
+  color: #111;
+}
+
+/* About panel */
+.about-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(380px, 90vw);
+  background: #fff;
+  color: #111;
+  padding: 3rem 2rem 2rem;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+  z-index: 200;
+  overflow-y: auto;
+  box-shadow: -4px 0 24px rgba(0,0,0,0.12);
+}
+
+.about-panel.open {
+  transform: translateX(0);
+}
+
+.about-panel h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.about-panel p {
+  color: #444;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.about-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #111;
+  line-height: 1;
+}
+
+/* Map — full viewport */
+body.page-map {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.page-map main {
+  flex: 1;
+  min-height: 0;
+}
+
+body.page-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
