@@ -246,8 +246,7 @@ body.page-map main {
   min-height: 0;
 }
 
-body.page-map iframe {
+body.page-map #map {
   width: 100%;
   height: 100%;
-  border: none;
 }
