@@ -14,7 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     L.marker([32.609191, 34.916522])
       .addTo(map)
-      .bindPopup('<b>Location</b><br>Filler text for this pin.');
+      .bindPopup(`
+        <b>The Yahya Family Home</b>
+        <p>The tragedy of the massacre is woven into the memory of the village of Tantura and the Yahya family home, built by XXX in 1882. During the Nakba, Israeli soldiers perpetrated horrific violence in this very place, violently killing men of the village after lining them up behind this home.</p>
+        <p>And yet, fishing families of Tantura and their children and grandchildren who are not allowed to return to live in their village still come and fish in these waters, storing their fishing nets, boats, and materials in the Yahya family home. Occupying and using the space despite the Israeli government's efforts to strip them of their heritage and the right to enter the home on the beach is a way to prevent the erasure of the village and people of Tantura from memory and to create presence instead of historicization.</p>
+        <p><i>Palestinian Fishing:</i> The mastery of the sea required sophisticated manual skill. The fishermen of Al-Tantura were experts in weaving the "Shabaka Fardiya" (the individual net), a specialized tool that allowed for precision in the shallow and rocky coastal waters.</p>
+      `);
   }
 
   // About panel language toggle
