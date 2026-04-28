@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('map')) {
     const TEL_DOR = [32.6167, 34.9183];
     const map = L.map('map').setView(TEL_DOR, 17);
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics',
       maxZoom: 19,
     }).addTo(map);
     L.marker(TEL_DOR)
