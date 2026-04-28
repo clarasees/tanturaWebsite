@@ -27,10 +27,15 @@
   <button class="about-btn" onclick="document.getElementById('about-panel').classList.add('open')" aria-label="About">i</button>
 
   <aside id="about-panel" class="about-panel">
-    <button class="about-close" onclick="document.getElementById('about-panel').classList.remove('open')" aria-label="Close">×</button>
-    <h2>About</h2>
-    <p>Tantura was a Palestinian fishing village on the Carmel Coast, known for its ancient port and rich history stretching back to the Bronze Age.</p>
-    <p>This site explores the village's landscape, life, and memory.</p>
+    <button class="about-close" onclick="document.getElementById('about-panel').classList.remove('open')" aria-label="Close">&times;</button>
+    <div class="lang-toggle">
+      <button id="lang-en" class="lang-btn active">EN</button>
+      <button id="lang-ar" class="lang-btn">AR</button>
+    </div>
+    <h2 data-ar="حول">About</h2>
+    <p data-ar="كانت طنطورة قرية صيد فلسطينية على ساحل الكرمل، اشتُهرت بميناؤها القديم وتاريخها العريق الممتد إلى العصر البرونزي.">Tantura was a Palestinian fishing village on the Carmel Coast, known for its ancient port and rich history stretching back to the Bronze Age.</p>
+    <p data-ar="يستكشف هذا الموقع مشهد القرية وحياتها وذاكرتها.">This site explores the village's landscape, life, and memory.</p>
   </aside>
+  <script src="main.js"></script>
 </body>
 </html>
