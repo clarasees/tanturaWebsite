@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Map — only runs on pages that include the Leaflet div
   if (document.getElementById('map')) {
     const TEL_DOR = [32.6167, 34.9183];
-    const map = L.map('map').setView(TEL_DOR, 17);
+    const YAHYA = [32.609191, 34.916522];
+    const map = L.map('map').fitBounds([TEL_DOR, YAHYA], { padding: [60, 60] });
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics',
       maxZoom: 19,
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .bindPopup('<b>This is Tantura</b><br>an ancient port city, now in present day Tel Dor (Hebrew of Tantura)')
       .openPopup();
 
-    L.marker([32.609191, 34.916522])
+    L.marker(YAHYA)
       .addTo(map)
       .bindPopup(`
         <b>The Yahya Family Home</b>
