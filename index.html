@@ -6,50 +6,57 @@
   <title>Tantura - on Palestinian Coastal Heritage</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,700;1,400&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,700;1,400&family=Tajawal:wght@400;500;700&display=swap" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body class="page-landing">
-  <nav>
-    <a href="map.html">Map</a>
-    <a href="life.html">Life</a>
-    <a href="index.html" class="wordmark-link active">
-      <img src="img/Tantura-Wordmark-b.png" alt="Tantura" class="wordmark wordmark-b" />
-      <img src="img/Tantura-Wordmark-w.png" alt="" class="wordmark wordmark-w" aria-hidden="true" />
-    </a>
-  </nav>
 
-  <main class="landing">
-    <div class="hero">
-      <img src="img/coast-boat-1.png" alt="Coast with boat" />
-      <img src="img/coast-boat-2.png" alt="Coast with boat overlay" class="overlay" />
-    </div>
-    <h1>Tantura</h1>
-    <p>[copy call to action for user to explore our website]</p>
-    <div class="landing-links">
-      <a href="map.html" class="btn">Explore the Map</a>
-      <a href="life.html" class="btn btn-secondary">Life in Tantura</a>
-    </div>
-  </main>
-
-  <button class="about-btn" onclick="document.getElementById('about-panel').classList.add('open')" aria-label="About">i</button>
-
-  <aside id="about-panel" class="about-panel">
-    <button class="about-close" onclick="document.getElementById(‘about-panel’).classList.remove(‘open’)" aria-label="Close">&times;</button>
-    <div class="lang-toggle">
-      <button id="lang-en" class="lang-btn active">EN</button>
-      <button id="lang-ar" class="lang-btn">AR</button>
-    </div>
-    <h2 data-ar="حول">About</h2>
-    <p data-ar="إلى البحر: صمود في طنطورة — التراث الساحلي الفلسطيني وممارسات الفرح">To the Sea: Sumoud in Tantura — Palestinian coastal heritage and practices of joy</p>
-    <p data-ar="إلى البحر مشروع من People and Ruins يُعيد إلى الواجهة الحياة الساحلية الفلسطينية، مع التركيز على قرية الطنطورة الساحلية المطموسة، الواقعة على بُعد 24 كيلومترًا جنوب حيفا.">To the Sea is a People and Ruins project resurfacing coastal life of Palestinians, focusing on the erased coastal village al-Tantura, located 24KM south of Haifa.</p>
-    <p data-ar="في العربية، تعني الطنطورة «القمة»، في إشارة إلى التلة الصغيرة المحيطة بالشاطئ التي قامت عليها القرية الفلسطينية. بعد احتلال عام 1948، لم يبقَ سوى ضريح وقلعة وسور قديم وبعض المنازل، وباتت الطنطورة مطموسة كليًا على الخرائط الشائعة وتُعرَّف بـ«تل دور»، منطقة ترفيهية إسرائيلية بمرافق سباحة.">In Arabic, al-Tantura means the ‘peak’, referring to the small hill surrounding the seashore on which the Palestinian village once stood. Post-1948 occupation, only a shrine, a fortress, an ancient wall, and a few of the houses remain, and Tantura is completely erased on popular maps and is tagged as Tel Dor, an Israeli recreational area with swimming facilities.</p>
-    <p data-ar="خريطة طنطورة ← تُعيد تشييد التراث الساحلي الفلسطيني المُهجَّر للطنطورة عبر رسم الخرائط بالأقمار الاصطناعية الحديثة، مدعومةً بمعرفة مستمدة من الروايات الشفهية للصياد الفلسطيني والمنظم المجتمعي سامي علي، المقيم في جسر الزرقاء.">Tantura Map → reconstructs the displaced Palestinian coastal heritage of al-Tantura through present-day satellite mapping, interspersed with knowledge drawn from oral histories of Palestinian fisherman and community organizer Sami Ali, based in Jisr al-Zarqa.</p>
-    <p data-ar="في عام 1948، كانت طنطورة موقع مجزرة نفّذتها الهاغاناه الإسرائيلية (لواء ألكسندروني). دُفن الضحايا في مقابر جماعية، إحداها يقع الآن تحت موقف سيارات شاطئ تل دور المجاور. اقرأ المزيد عن أبحاث العمارة الجنائية 2023 ← شاهد الوثائقي ←">In 1948, Tantura was the site of a massacre carried out by Israel’s Haganah (Alexandroni Brigade). The victims were buried in mass graves — one of them now beneath a parking lot for the nearby Tel Dor beach. Learn more about the 2023 Forensic Architecture research → Watch the documentary →</p>
-    <p data-ar="يواصل الفلسطينيون على شاطئ البحر تجسيد صمودهم حتى في أبسط أعمال الحياة اليومية.">Palestinians by the sea continue to practice resilience even in the most ordinary acts of living.</p>
-    <p data-ar="حياة طنطورة (رابط الصفحة) موسوعة للتراث الساحلي، سجلٌ محفوظ لأجيال المستقبل وشهادة على الفرح والصمود الذي تُجسّده الحياة الفلسطينية المتواصلة على شاطئ البحر. تجمع بين التقاليد الحاضرة والماضية وسُبل العيش والرياضة وأشكال الترفيه، إلى جانب الروايات الشفهية والبحث في نسيج الحياة اليومية في الطنطورة: جغرافيتها وناسها وإيقاعاتها على المياه.">Tantura Life (page link) is a compendium of coastal heritage, a record preserved for future generations to reference and a testament of joy and resilience of persistent Palestinian living by the sea. It brings together present and past traditions, livelihoods, sports and forms of recreation alongside oral histories and research into the textures of everyday life in al-Tantura: its geography, its people, its rhythms along the water.</p>
-    <p data-ar="مشروع إعادة إظهار بقلم كلارا كايوسا، جوردان دوب، جيد هاردويك — جامعة براون، People and Ruins، بإشراف الأستاذ عروة سويطات">a resurfacing project by Clara Cayosa, Jordan Dopp, Jade Hardwick Brown University, People and Ruins, under Prof. Orwa Switat</p>
+  <aside class="panel panel-en">
+    <h2>About</h2>
+    <p>To the Sea: Sumoud in Tantura — Palestinian coastal heritage and practices of joy</p>
+    <p>To the Sea is a People and Ruins project resurfacing coastal life of Palestinians, focusing on the erased coastal village al-Tantura, located 24KM south of Haifa.</p>
+    <p>In Arabic, al-Tantura means the 'peak', referring to the small hill surrounding the seashore on which the Palestinian village once stood. Post-1948 occupation, only a shrine, a fortress, an ancient wall, and a few of the houses remain, and Tantura is completely erased on popular maps and is tagged as Tel Dor, an Israeli recreational area with swimming facilities.</p>
+    <p>Tantura Map → reconstructs the displaced Palestinian coastal heritage of al-Tantura through present-day satellite mapping, interspersed with knowledge drawn from oral histories of Palestinian fisherman and community organizer Sami Ali, based in Jisr al-Zarqa.</p>
+    <p>In 1948, Tantura was the site of a massacre carried out by Israel's Haganah (Alexandroni Brigade). The victims were buried in mass graves — one of them now beneath a parking lot for the nearby Tel Dor beach. Learn more about the 2023 Forensic Architecture research → Watch the documentary →</p>
+    <p>Palestinians by the sea continue to practice resilience even in the most ordinary acts of living.</p>
+    <p>Tantura Life (page link) is a compendium of coastal heritage, a record preserved for future generations to reference and a testament of joy and resilience of persistent Palestinian living by the sea. It brings together present and past traditions, livelihoods, sports and forms of recreation alongside oral histories and research into the textures of everyday life in al-Tantura: its geography, its people, its rhythms along the water.</p>
+    <p>a resurfacing project by Clara Cayosa, Jordan Dopp, Jade Hardwick Brown University, People and Ruins, under Prof. Orwa Switat</p>
   </aside>
+
+  <div class="center-col">
+    <nav>
+      <a href="map.html">Map</a>
+      <a href="life.html">Life</a>
+      <a href="index.html" class="wordmark-link active">
+        <img src="img/Tantura-Wordmark-b.png" alt="Tantura" class="wordmark wordmark-b" />
+        <img src="img/Tantura-Wordmark-w.png" alt="" class="wordmark wordmark-w" aria-hidden="true" />
+      </a>
+    </nav>
+    <main class="landing">
+      <div class="hero">
+        <img src="img/coast-boat-1.png" alt="Coast with boat" />
+        <img src="img/coast-boat-2.png" alt="Coast with boat overlay" class="overlay" />
+        <div id="hero-map" class="hero-map"></div>
+      </div>
+      <h1>Tantura</h1>
+      <p>[copy call to action for user to explore our website]</p>
+    </main>
+  </div>
+
+  <aside class="panel panel-ar" dir="rtl">
+    <h2>حول</h2>
+    <p>إلى البحر: صمود في طنطورة — التراث الساحلي الفلسطيني وممارسات الفرح</p>
+    <p>إلى البحر مشروع من People and Ruins يُعيد إلى الواجهة الحياة الساحلية الفلسطينية، مع التركيز على قرية الطنطورة الساحلية المطموسة، الواقعة على بُعد 24 كيلومترًا جنوب حيفا.</p>
+    <p>في العربية، تعني الطنطورة «القمة»، في إشارة إلى التلة الصغيرة المحيطة بالشاطئ التي قامت عليها القرية الفلسطينية. بعد احتلال عام 1948، لم يبقَ سوى ضريح وقلعة وسور قديم وبعض المنازل، وباتت الطنطورة مطموسة كليًا على الخرائط الشائعة وتُعرَّف بـ«تل دور»، منطقة ترفيهية إسرائيلية بمرافق سباحة.</p>
+    <p>خريطة طنطورة ← تُعيد تشييد التراث الساحلي الفلسطيني المُهجَّر للطنطورة عبر رسم الخرائط بالأقمار الاصطناعية الحديثة، مدعومةً بمعرفة مستمدة من الروايات الشفهية للصياد الفلسطيني والمنظم المجتمعي سامي علي، المقيم في جسر الزرقاء.</p>
+    <p>في عام 1948، كانت طنطورة موقع مجزرة نفّذتها الهاغاناه الإسرائيلية (لواء ألكسندروني). دُفن الضحايا في مقابر جماعية، إحداها يقع الآن تحت موقف سيارات شاطئ تل دور المجاور. اقرأ المزيد عن أبحاث العمارة الجنائية 2023 ← شاهد الوثائقي ←</p>
+    <p>يواصل الفلسطينيون على شاطئ البحر تجسيد صمودهم حتى في أبسط أعمال الحياة اليومية.</p>
+    <p>حياة طنطورة (رابط الصفحة) موسوعة للتراث الساحلي، سجلٌ محفوظ لأجيال المستقبل وشهادة على الفرح والصمود الذي تُجسّده الحياة الفلسطينية المتواصلة على شاطئ البحر. تجمع بين التقاليد الحاضرة والماضية وسُبل العيش والرياضة وأشكال الترفيه، إلى جانب الروايات الشفهية والبحث في نسيج الحياة اليومية في الطنطورة: جغرافيتها وناسها وإيقاعاتها على المياه.</p>
+    <p>مشروع إعادة إظهار بقلم كلارا كايوسا، جوردان دوب، جيد هاردويك — جامعة براون، People and Ruins، بإشراف الأستاذ عروة سويطات</p>
+  </aside>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

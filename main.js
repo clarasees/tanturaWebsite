@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Map — only runs on pages that include the Leaflet div
+  const TEL_DOR  = [32.6167, 34.9183];
+  const YAHYA    = [32.609191, 34.916522];
+  const SATELLITE = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+
+  // Full-page map (map.html)
   if (document.getElementById('map')) {
-    const TEL_DOR = [32.6167, 34.9183];
-    const YAHYA = [32.609191, 34.916522];
     const map = L.map('map').fitBounds([TEL_DOR, YAHYA], { padding: [60, 60] });
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    L.tileLayer(SATELLITE, {
       attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics',
       maxZoom: 19,
     }).addTo(map);
@@ -12,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
       .addTo(map)
       .bindPopup('<b>This is Tantura</b><br>an ancient port city, now in present day Tel Dor (Hebrew of Tantura)')
       .openPopup();
-
     L.marker(YAHYA)
       .addTo(map)
       .bindPopup(`
@@ -23,28 +24,69 @@ document.addEventListener('DOMContentLoaded', () => {
       `);
   }
 
-  // About panel language toggle
+  // Hero map preview (index.html)
+  const heroMapEl = document.getElementById('hero-map');
+  if (heroMapEl) {
+    heroMapEl.addEventListener('click', () => {
+      document.body.classList.add('page-exit');
+      setTimeout(() => { window.location.href = 'map.html'; }, 500);
+    });
+    document.querySelector('.hero').addEventListener('mouseenter', () => {
+      const heroMap = L.map('hero-map', { zoomControl: false, attributionControl: false })
+        .fitBounds([TEL_DOR, YAHYA], { padding: [20, 20] });
+      L.tileLayer(SATELLITE, { maxZoom: 19 }).addTo(heroMap);
+      L.marker(TEL_DOR).addTo(heroMap);
+      L.marker(YAHYA).addTo(heroMap);
+    }, { once: true });
+  }
+
+  // Landing page enter animation + colour trigger
+  const landing = document.querySelector('body.page-landing');
+  if (landing) {
+    landing.classList.add('page-enter');
+    requestAnimationFrame(() => requestAnimationFrame(() => landing.classList.remove('page-enter')));
+    document.addEventListener('mousemove', () => landing.classList.add('cursor-active'), { once: true });
+  }
+
+  // Synced scroll + scrollbar visibility for EN/AR panels
+  const panelEn = document.querySelector('.panel-en');
+  const panelAr = document.querySelector('.panel-ar');
+  if (panelEn && panelAr) {
+    let lock = null;
+    const sync = (a, b) => a.addEventListener('scroll', () => {
+      if (lock === a) return;
+      lock = b;
+      b.scrollTop = a.scrollTop;
+      requestAnimationFrame(() => { lock = null; });
+    });
+    sync(panelEn, panelAr);
+    sync(panelAr, panelEn);
+
+    [panelEn, panelAr].forEach(p => {
+      let t;
+      p.addEventListener('scroll', () => {
+        p.classList.add('is-scrolling');
+        clearTimeout(t);
+        t = setTimeout(() => p.classList.remove('is-scrolling'), 800);
+      });
+    });
+  }
+
+  // About panel EN/AR toggle (map.html, life.html)
   const panel = document.getElementById('about-panel');
-  if (!panel) return;
+  if (panel) {
+    const btnEn = document.getElementById('lang-en');
+    const btnAr = document.getElementById('lang-ar');
+    const translatables = panel.querySelectorAll('[data-ar]');
+    translatables.forEach(el => { el.dataset.en = el.textContent; });
 
-  const btnEn = document.getElementById('lang-en');
-  const btnAr = document.getElementById('lang-ar');
-  if (!btnEn || !btnAr) return;
-
-  const translatables = panel.querySelectorAll('[data-ar]');
-  translatables.forEach(el => { el.dataset.en = el.textContent; });
-
-  btnAr.addEventListener('click', () => {
-    translatables.forEach(el => { el.textContent = el.dataset.ar; });
-    panel.setAttribute('dir', 'rtl');
-    btnAr.classList.add('active');
-    btnEn.classList.remove('active');
-  });
-
-  btnEn.addEventListener('click', () => {
-    translatables.forEach(el => { el.textContent = el.dataset.en; });
-    panel.removeAttribute('dir');
-    btnEn.classList.add('active');
-    btnAr.classList.remove('active');
-  });
+    const setLang = (isAr) => {
+      translatables.forEach(el => { el.textContent = isAr ? el.dataset.ar : el.dataset.en; });
+      panel.dir = isAr ? 'rtl' : '';
+      btnAr.classList.toggle('active', isAr);
+      btnEn.classList.toggle('active', !isAr);
+    };
+    btnAr.addEventListener('click', () => setLang(true));
+    btnEn.addEventListener('click', () => setLang(false));
+  }
 });
