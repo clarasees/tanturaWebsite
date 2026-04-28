@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
       .addTo(map)
       .bindPopup('<b>This is Tantura</b><br>an ancient port city, now in present day Tel Dor (Hebrew of Tantura)')
       .openPopup();
+
+    L.marker([32.609191, 34.916522])
+      .addTo(map)
+      .bindPopup('<b>Location</b><br>Filler text for this pin.');
   }
 
   // About panel language toggle
