@@ -6,9 +6,15 @@
 
 body {
   font-family: 'Barlow', sans-serif;
-  line-height: 1;
+  line-height: 0.8;
   color: #111;
-  font-size: 8.5px;
+  font-size: 8px;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
 nav {
@@ -95,8 +101,6 @@ body.page-enter .center-col { opacity: 0; }
   flex-shrink: 0;
   overflow-y: auto;
   padding: 2rem 1.5rem;
-  font-size: 0.9rem;
-  line-height: 1.5;
   border-right: 1px solid rgba(255,255,255,0.2);
   transition: transform 0.8s ease-in, border-color 0.6s ease;
 }
@@ -109,14 +113,15 @@ body.page-enter .center-col { opacity: 0; }
 
 
 .panel h2 {
-  font-size: 1rem;
-  font-weight: 700;
+  font-family: "mendl-serif-variable", sans-serif;
+  font-variation-settings: 'wght' 400, 'STYL' 0.5;
+  font-size: 1.75rem;
   margin-bottom: 1.25rem;
   color: #888;
+  line-height: 2rem;
 }
 
 .panel p {
-  margin-bottom: 1rem;
   color: #666;
 }
 
@@ -189,16 +194,23 @@ body.page-landing.cursor-active nav a.active:not(.wordmark-link) { color: #111; 
 }
 
 .page-landing h1 {
+  font-family: "mendl-serif-variable", sans-serif;
+  font-variation-settings: 'wght' 400, 'STYL' 0.5;
   font-size: 3rem;
-  font-weight: 700;
+  line-height: .8;
   letter-spacing: -0.02em;
   margin-bottom: 1rem;
 }
 
 .page-landing p {
   color: #aaa;
-  font-size: 1.1rem;
-  margin-bottom: 2.5rem;
+}
+
+.center-col p {
+  font-family: "mendl-serif-variable", sans-serif;
+  font-variation-settings: 'wght' 100, 'STYL' 0.5;
+  font-size: 3rem;
+  line-height: 1;
 }
 
 .landing-links {
@@ -289,12 +301,6 @@ body:not(.page-landing) .about-btn {
   transform: translateX(0);
 }
 
-.about-panel h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1.25rem;
-}
-
 .about-panel p {
   color: #444;
   margin-bottom: 1rem;
@@ -350,4 +356,64 @@ body.page-map main {
 body.page-map #map {
   width: 100%;
   height: 100%;
+}
+
+/* Map overlay control */
+.overlay-control {
+  background: #fff;
+  border: 2px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 160px;
+}
+
+.overlay-label {
+  font-family: 'Barlow', sans-serif;
+  font-size: 9px;
+  color: #111;
+  white-space: nowrap;
+}
+
+.overlay-slider {
+  width: 100%;
+  cursor: pointer;
+  accent-color: #111;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .panel {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 10px;
+  }
+
+  .page-landing main {
+    margin-top: 2rem;
+    padding: 0 1rem;
+  }
+
+  .page-landing h1 {
+    font-size: 2.2rem;
+  }
+
+  .page-life main {
+    padding: 1rem;
+  }
+
+  nav {
+    padding: 0.75rem 1rem;
+    gap: 1rem;
+  }
+
+  .wordmark {
+    height: 2.5rem;
+  }
 }

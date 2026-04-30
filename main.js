@@ -7,12 +7,53 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('map')) {
     const map = L.map('map').fitBounds([TEL_DOR, YAHYA], { padding: [60, 60] });
     L.tileLayer(SATELLITE, {
-      attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics',
+      attribution: 'Tantura Map &mdash; via Leaflet',
       maxZoom: 19,
     }).addTo(map);
+    const overlay1 = L.imageOverlay(
+      'img/Tantura Overlay-Map-03.png',
+      [[32.602629, 34.911965], [32.620741590558126, 34.9231799614365]],
+      { opacity: 0.5 }
+    ).addTo(map);
+
+    const overlay2 = L.imageOverlay(
+      'img/Tantura_1938.jpg',
+      [[32.581489, 34.910974], [32.635227, 34.948354]],
+      { opacity: 0.5 }
+    ).addTo(map);
+
+    const makeOverlayControl = (overlay, label) => L.Control.extend({
+      options: { position: 'topleft' },
+      onAdd() {
+        const container = L.DomUtil.create('div', 'overlay-control');
+        L.DomEvent.disableClickPropagation(container);
+        L.DomEvent.disableScrollPropagation(container);
+        container.innerHTML = `
+          <span class="overlay-label">${label}</span>
+          <input class="overlay-slider" type="range" min="0" max="1" step="0.01" value="0.5" />
+        `;
+        container.querySelector('.overlay-slider').addEventListener('input', e => {
+          overlay.setOpacity(parseFloat(e.target.value));
+        });
+        return container;
+      }
+    });
+
+    const overlay3 = L.imageOverlay(
+      'img/Tantura Overlay-Map-1946.png',
+      [[32.599189, 34.901754], [32.629142, 34.934484]],
+      { opacity: 0.5 }
+    ).addTo(map);
+
+    L.marker([32.618683, 34.916221]).addTo(map).bindPopup('Horse wash');
+
+    new (makeOverlayControl(overlay3, 'Tantura, 1946'))().addTo(map);
+    new (makeOverlayControl(overlay1, 'British survey map, 1942'))().addTo(map);
+    new (makeOverlayControl(overlay2, 'Tantura, 1938'))().addTo(map);
+
     L.marker(TEL_DOR)
       .addTo(map)
-      .bindPopup('<b>This is Tantura</b><br>an ancient port city, now in present day Tel Dor (Hebrew of Tantura)')
+      .bindPopup('<b>Tantura, Palestine</b><br>This is where Tantura once was. On 22 May 1948, during the Nakba, the population of Al-Tantura was forcibly displaced by Zionist military forces. Today, the place where Al Tantura once stood has been built over to make way for Israeli construction. Its original inhabitants and their descendants are prevented from returning by Israel.')
       .openPopup();
     L.marker(YAHYA)
       .addTo(map)
