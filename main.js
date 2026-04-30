@@ -13,13 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlay1 = L.imageOverlay(
       'img/Tantura Overlay-Map-03.png',
       [[32.602629, 34.911965], [32.620741590558126, 34.9231799614365]],
-      { opacity: 0.5 }
+      { opacity: 0 }
     ).addTo(map);
 
     const overlay2 = L.imageOverlay(
       'img/Tantura_1938.jpg',
       [[32.581489, 34.910974], [32.635227, 34.948354]],
-      { opacity: 0.5 }
+      { opacity: 0 }
     ).addTo(map);
 
     const makeOverlayControl = (overlay, label) => L.Control.extend({
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         L.DomEvent.disableScrollPropagation(container);
         container.innerHTML = `
           <span class="overlay-label">${label}</span>
-          <input class="overlay-slider" type="range" min="0" max="1" step="0.01" value="0.5" />
+          <input class="overlay-slider" type="range" min="0" max="1" step="0.01" value="0" />
         `;
         container.querySelector('.overlay-slider').addEventListener('input', e => {
           overlay.setOpacity(parseFloat(e.target.value));
@@ -42,12 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlay3 = L.imageOverlay(
       'img/Tantura Overlay-Map-1946.png',
       [[32.599189, 34.901754], [32.629142, 34.934484]],
-      { opacity: 0.5 }
+      { opacity: 0 }
     ).addTo(map);
 
-    const icon02 = L.icon({ iconUrl: 'pins/flag-pins-02.png', iconSize: [45, 68], iconAnchor: [22, 68], popupAnchor: [1, -60] });
-    const icon03 = L.icon({ iconUrl: 'pins/flag-pins-03.png', iconSize: [45, 62], iconAnchor: [22, 62], popupAnchor: [1, -54] });
-    const icon04 = L.icon({ iconUrl: 'pins/flag-pins-04.png', iconSize: [45, 62], iconAnchor: [22, 62], popupAnchor: [1, -54] });
+    const icon02 = L.icon({ iconUrl: 'pins/flag-pins-02.png', iconSize: [56, 85], iconAnchor: [28, 85], popupAnchor: [66, -42] });
+    const icon03 = L.icon({ iconUrl: 'pins/flag-pins-03.png', iconSize: [56, 78], iconAnchor: [28, 78], popupAnchor: [66, -39] });
+    const icon04 = L.icon({ iconUrl: 'pins/flag-pins-04.png', iconSize: [56, 78], iconAnchor: [28, 78], popupAnchor: [66, -39] });
 
     L.marker([32.618683, 34.916221], { icon: icon04 }).addTo(map).bindPopup(`
       <b>The Horse Wash</b>

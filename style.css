@@ -434,8 +434,8 @@ body.page-map #map {
   color: rgba(255,255,255,0.7);
 }
 
-.leaflet-popup-tip {
-  background: #96ABE0;
+.leaflet-popup-tip-container {
+  display: none;
 }
 
 .leaflet-popup-close-button {
