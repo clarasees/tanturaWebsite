@@ -45,17 +45,30 @@ document.addEventListener('DOMContentLoaded', () => {
       { opacity: 0.5 }
     ).addTo(map);
 
-    L.marker([32.618683, 34.916221]).addTo(map).bindPopup('Horse wash');
+    const icon02 = L.icon({ iconUrl: 'pins/flag-pins-02.png', iconSize: [45, 68], iconAnchor: [22, 68], popupAnchor: [1, -60] });
+    const icon03 = L.icon({ iconUrl: 'pins/flag-pins-03.png', iconSize: [45, 62], iconAnchor: [22, 62], popupAnchor: [1, -54] });
+    const icon04 = L.icon({ iconUrl: 'pins/flag-pins-04.png', iconSize: [45, 62], iconAnchor: [22, 62], popupAnchor: [1, -54] });
 
-    new (makeOverlayControl(overlay3, 'Tantura, 1946'))().addTo(map);
-    new (makeOverlayControl(overlay1, 'British survey map, 1942'))().addTo(map);
-    new (makeOverlayControl(overlay2, 'Tantura, 1938'))().addTo(map);
+    L.marker([32.618683, 34.916221], { icon: icon04 }).addTo(map).bindPopup(`
+      <b>The Horse Wash</b>
+      <p>In the archive of spatial practice in Tantura, The Horse Wash is a site of crystalline clarity and immense sensory beauty. Local oral history tells of the Zalaf Hills—natural elevations nearby formed over ages from crushed seashells—and small islands that would transform seasonally into gardens of white narcissus. The scent of these flowers, the nargis, would drift across the water, carrying into the village.</p>
+      <p>There is a story often told about this basin that illustrates the purity of these waters. A young man once lost a gold engagement ring while swimming there at night. In any other sea, that ring would be lost to the silt and the current. But the Horse Wash was so still, and the water so pristine, that he returned the next morning and found the gold shimmering clearly against the sand at the bottom.</p>
+      <p>This story is more than a charming anecdote. It is a testament to how the village saw its own environment as one of clarity and abundance. For the youth of Tantura, the Horse Wash was a site of communal swimming, of play, and of the joyful labor of caring for their animals. When we think of returning to Tantura today, we are talking about the children and grandchildren of those villagers who still return to these waters. They may be legally barred from owning the land, but they are the heirs to this clarity. When they swim in this basin today, they are not just tourists at a resort; they are engaging in a generational act of "accompanying" the landscape. They are finding a connection, through the waters, to their own heritage. By washing in these waters and fishing from these shores, they ensure that Tantura remains a living place of coastal joy, rather than a static historicized ruin.</p>
+    `);
 
-    L.marker(TEL_DOR)
+    new (makeOverlayControl(overlay3, 'Survey of Israel, 1946'))().addTo(map);
+    new (makeOverlayControl(overlay1, 'British Survey Map, 1942'))().addTo(map);
+    new (makeOverlayControl(overlay2, 'Survey of Palestine, 1938'))().addTo(map);
+
+    L.marker(TEL_DOR, { icon: icon02 })
       .addTo(map)
-      .bindPopup('<b>Tantura, Palestine</b><br>This is where Tantura once was. On 22 May 1948, during the Nakba, the population of Al-Tantura was forcibly displaced by Zionist military forces. Today, the place where Al Tantura once stood has been built over to make way for Israeli construction. Its original inhabitants and their descendants are prevented from returning by Israel.')
+      .bindPopup(`
+        <b>Tantura, Palestine</b>
+        <p>This is where Tantura once was. On 22 May 1948, during the Nakba, the population of Al-Tantura was forcibly displaced by Zionist military forces.</p>
+        <p>Today, the place where Al-Tantura once stood has been built over to make way for Israeli construction. Its original inhabitants and their descendants are prevented from returning by Israel.</p>
+      `)
       .openPopup();
-    L.marker(YAHYA)
+    L.marker(YAHYA, { icon: icon03 })
       .addTo(map)
       .bindPopup(`
         <b>The Yahya Family Home</b>
